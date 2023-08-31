@@ -619,8 +619,10 @@ heatmap.2 <- function (x,
                     stop('Row dendrogram too deeply nested, recursion limit exceeded.  Try increasing option("expressions"=...).')
             }
     }
-  else
+  else {
+    par(mar = rep(0,4))
     plot.new()
+  }
 
   par(mar = c(0, 0, if(!is.null(main)) 5 else 0, margins[2]))
 
@@ -636,8 +638,10 @@ heatmap.2 <- function (x,
                     stop('Column dendrogram too deeply nested, recursion limit exceeded.  Try increasing option("expressions"=...).')
             }
     }
-  else
+  else {
+    par(mar = rep(0,4))
     plot.new()
+  }
 
   ## title
   if(!is.null(main)) title(main, cex.main = 1.5*op[["cex.main"]])
