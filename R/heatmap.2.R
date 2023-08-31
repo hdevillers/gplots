@@ -70,6 +70,7 @@ heatmap.2 <- function (x,
                        symkey = any(x < 0, na.rm=TRUE) || symbreaks,
                        densadj = 0.25,
                        key.title = NULL,
+                       key.spl = 100,
                        key.xlab = NULL,
                        key.ylab = NULL,
                        key.xtickfun = NULL,
@@ -674,7 +675,7 @@ heatmap.2 <- function (x,
           max.raw <- max.breaks
         }
 
-      z <- seq(min.raw, max.raw, by=min(diff(breaks)/100))
+      z <- seq(min.raw, max.raw, by=min(diff(breaks)/key.spl))
       image(z=matrix(z, ncol=1),
             col=col, breaks=tmpbreaks,
             xaxt="n", yaxt="n")
